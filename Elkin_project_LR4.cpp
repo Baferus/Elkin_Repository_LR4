@@ -26,6 +26,17 @@ int countDigitsX(int x,int n){
         return false;
     } // Разрабатывался Елькиным Николаем branch_fun_2
 }
+int productOfFirstNDigits(int x, int n) {
+    int numDigits = countDigits(x);
+    if (n <= 0 || n > numDigits) return 0;
+    
+    int product = 1;
+    for (int i = 0; i < n; i++) {
+        int digit = x / (int)pow(10, numDigits - 1 - i) % 10;
+        product *= digit;
+    }
+    return product; // Разрабатывался Елькиным Николаем branch_fun_3
+}
 
 int main(){ 
     while(true){
@@ -65,6 +76,20 @@ int main(){
                 break;
 
             }
+            case 3:{
+                cout << "Введите число X:\n";
+                cin >> x; 
+                cout << "Введите цифру N (меньше количества разрядов числа X): \n"; 
+                cin >> n;
+                int numDigits = countDigits(x);
+                if (n <= 0 || n > numDigits) {
+                    cout << "Ошибка: N должно быть больше 0 и меньше количества разрядов числа X.\n" << endl;
+                    return 1;
+                }
+                int product = productOfFirstNDigits(x, n);
+                cout << "Произведение первых " << n << " цифр числа " << x << " равно: " << product << endl;
+                break;
+            } 
             
             case 5: 
                 return 0;
