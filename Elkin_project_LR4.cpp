@@ -9,7 +9,23 @@ int naturalNumber(int x){
         return false;
     }
     // Разрабатывался Елькиным Николаем 
-} 
+}
+int countDigits(int x){
+    int count = 0;
+    while(x!=0){
+        x=x/10;
+        count +=1;
+    } 
+    return count; // Разрабатывался Елькиным Николаем branch_fun_2
+}
+int countDigitsX(int x,int n){
+    if(n<countDigits(x)){
+        return true;
+    } 
+    else {
+        return false;
+    } // Разрабатывался Елькиным Николаем branch_fun_2
+}
 
 int main(){ 
     while(true){
@@ -33,7 +49,22 @@ int main(){
                     cout << "Число не подходит\n";
                 } 
                 break;
-            } 
+            }
+            case 2: { 
+                cout <<"Введите число X\n"; 
+                cin >> x;
+                cout << "Введите число N(которое меньше числа разрядов числа X)\n";
+                cin >> n; 
+                if (countDigitsX(x,n)){
+                    cout << "Число подходит!\n";
+                } 
+                else {
+                    cout << "Неверное число\n";
+                    break;
+                } 
+                break;
+
+            }
             
             case 5: 
                 return 0;
