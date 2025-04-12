@@ -37,6 +37,15 @@ int productOfFirstNDigits(int x, int n) {
     }
     return product; // Разрабатывался Елькиным Николаем branch_fun_3
 }
+int sumOfDigits(int x) {
+    int sum = 0;
+    while (x != 0) {
+        sum += abs(x) % 10;
+        x /= 10;
+    }
+    return sum; // Разрабатывался Елькиным Николаем branch_fun_4
+}
+
 
 int main(){ 
     while(true){
@@ -89,8 +98,13 @@ int main(){
                 int product = productOfFirstNDigits(x, n);
                 cout << "Произведение первых " << n << " цифр числа " << x << " равно: " << product << endl;
                 break;
-            } 
-            
+            }
+            case 4: {
+                cout << "Введите число X:\n";
+                cin >> x; 
+                cout << sumOfDigits(x)<< endl; 
+                break;
+            }
             case 5: 
                 return 0;
             default: 
